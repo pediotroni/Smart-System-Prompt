@@ -20,7 +20,7 @@
 
 | File | Authority |
 |---|---|
-| `00-project.md` | Project identity |
+| `01-project.md` | Project identity |
 | `10-state.md` | Current project state |
 | `11-current-task.md` | Current task |
 | `20-decisions.md` | Established decisions |
