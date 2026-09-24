@@ -40,7 +40,7 @@ Runtime-specific behavior belongs to the Runtime Adapter layer.
 
 ## Core Responsibilities
 
-The Reference Implementation shall realize the following responsibilities:
+The Reference Implementation realizes:
 
 1. Workspace Initialization
 2. Project Registry Management
@@ -51,6 +51,22 @@ The Reference Implementation shall realize the following responsibilities:
 7. Validation and Consistency Checking
 
 These responsibilities correspond to the components established during the Reference CCA component definition phase.
+
+## Concrete Baseline
+
+The first concrete baseline is located under `implementation/cca_reference/`.
+
+It provides:
+
+- a runtime-independent composition root
+- concrete implementations of the seven established responsibilities
+- explicit operation-result statuses
+- typed project, active-context, memory, and checkpoint state
+- an abstract Runtime Adapter boundary
+- a deterministic in-memory adapter for implementation-level testing
+- focused tests for selective retrieval, project resolution, memory deduplication, and validation
+
+The baseline intentionally does not implement Phase 3 runtime adapters.
 
 ## Authority Boundaries
 
@@ -146,12 +162,12 @@ These concerns shall be resolved only when sufficient evidence exists.
 
 ## Current Status
 
-**Architecture:** Established
-**Implementation Boundary:** Defined
-**Reference Implementation:** Interface Definition Complete; Concrete Construction Not Started
-**Runtime Adapter:** Not Started
+**Architecture:** Established  
+**Implementation Boundary:** Defined  
+**Reference Implementation:** Initial Concrete Baseline Constructed  
+**Runtime Adapter:** Phase 3; Not Started  
 **Behavioral Validation:** Not Started
 
 ## Next Step
 
-Perform interface-level consistency review before beginning concrete Reference Implementation construction.
+Establish a controlled testable baseline and validate the implementation before introducing further architectural elements.
