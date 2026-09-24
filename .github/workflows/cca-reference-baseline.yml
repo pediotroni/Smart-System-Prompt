@@ -1,0 +1,17 @@
+name: CCA Reference Baseline
+
+on:
+  push:
+    paths:
+      - "implementation/cca_reference/**"
+      - ".github/workflows/cca-reference-baseline.yml"
+  workflow_dispatch:
+
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run deterministic baseline
+        run: python3 implementation/cca_reference/test_baseline.py
