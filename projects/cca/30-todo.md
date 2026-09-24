@@ -18,11 +18,21 @@ Complete the required project-local files and verify that their responsibilities
 
 ## T-002 — Define Remaining Reference CCA Components
 
-**Status:** PENDING
+**Status:** COMPLETED
 
-Identify the minimum remaining components required to transform the current architectural baseline into a coherent and testable Reference CCA implementation.
+The minimum Reference CCA implementation responsibilities were identified and their internal interfaces were defined in `41-component-interfaces.md`.
 
-Do not introduce components without sufficient architectural justification.
+The seven responsibilities are:
+
+1. Workspace Initialization
+2. Project Registry Management
+3. Active Context Management
+4. Context Retrieval
+5. Memory Classification and Persistence
+6. Context Checkpointing
+7. Validation and Consistency Checking
+
+No additional component was introduced for the currently open questions.
 
 ---
 
