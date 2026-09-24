@@ -6,7 +6,7 @@ Construct the CCA Reference Architecture into a coherent, internally consistent,
 
 ## Immediate Objective
 
-Complete the project-local CCA structure and then implement the remaining required architectural components in a controlled sequence.
+Complete the interface-level consistency review of the defined Reference Implementation responsibilities, then proceed to concrete implementation in a controlled sequence.
 
 The immediate goal is not optimization or minimization.
 
@@ -14,10 +14,9 @@ The immediate goal is to establish a sufficiently complete Reference CCA that ca
 
 ## Current Work Sequence
 
-1. Complete the project-local baseline.
-2. Identify the remaining required CCA components.
-3. Construct the required components according to their defined responsibilities.
-4. Perform an internal consistency review.
+1. Complete the interface-level consistency review.
+2. Correct only identified interface or responsibility inconsistencies.
+3. Construct the required implementation components according to their defined responsibilities.
 5. Establish a controlled testable baseline.
 6. Run real-model behavioral tests.
 7. Analyze observed behavior.
