@@ -2,18 +2,18 @@
 
 ## Current Task
 
-Establish a controlled, testable Reference CCA baseline and prepare it for behavioral validation.
+Execute the controlled Reference CCA baseline checks and prepare the implementation for behavioral validation.
 
 ## Immediate Objective
 
-Exercise the concrete Reference CCA implementation against deterministic test scenarios, identify implementation defects or architectural gaps, and prepare the minimum configuration required for later real-model testing.
+Run the deterministic baseline runner against the concrete Reference CCA implementation, record observed behavior, correct only evidence-supported defects, and prepare the minimum configuration required for later real-model testing.
 
 The immediate goal is validation of the Reference CCA, not optimization or minimization.
 
 ## Current Work Sequence
 
-1. Establish a controlled testable baseline.
-2. Run deterministic implementation-level tests.
+1. Execute the controlled baseline checks.
+2. Record deterministic implementation-level results.
 3. Analyze observed behavior.
 4. Correct only evidence-supported implementation defects or architectural deficiencies.
 5. Prepare real-runtime/model testing.
