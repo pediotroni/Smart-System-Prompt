@@ -62,28 +62,40 @@ The review identified and corrected a dependency-graph overstatement and synchro
 
 **Status:** COMPLETED
 
-A deterministic controlled baseline has been prepared under `implementation/cca_reference/`.
+A deterministic controlled baseline has been executed successfully in GitHub Actions.
 
-The baseline exercises all seven established responsibilities and distinguishes implementation-level baseline checks from later real-model behavioral validation.
+Verified execution:
 
-Execution of the runner is an external runtime action and has not been claimed as verified in this environment.
+- Workflow: `CCA Reference Baseline`
+- Run ID: `36058064392`
+- Commit: `33c79d76d0c3968d55fe8bf63c647062ccce9d5f`
+- Conclusion: `success`
+
+The baseline exercises all seven established responsibilities.
+
+This establishes a verified implementation-level PASS. It does not establish real-model behavioral correctness.
 
 ---
 
 ## T-006 — Perform Real-Model Behavioral Testing
 
-**Status:** PENDING
+**Status:** IN PREPARATION
 
-Run controlled tests against the Reference CCA and record observed behavior.
+Define and execute the minimum controlled behavioral test suite against one verified model/runtime configuration.
 
-Testing should distinguish between:
+The controlled plan is recorded in `42-behavioral-validation-plan.md`.
 
-- PASS
-- FAIL
-- PARTIAL
-- UNEXPECTED BEHAVIOR
-- ARCHITECTURAL DEFECT
-- MODEL CAPABILITY LIMIT
+The minimum suite covers:
+
+- returning-run continuity
+- selective retrieval
+- multi-project isolation
+- memory classification and deduplication
+- context checkpoint and recovery
+- capability truthfulness
+- missing / unknown / conflict handling
+
+Testing must separate primary behavioral results from secondary diagnosis.
 
 ---
 
@@ -152,7 +164,7 @@ Do not remove or redesign the category without evidence.
 
 **Status:** DEFERRED
 
-After the Reference CCA has been sufficiently implemented and validated, evaluate whether compact or specialized variants are justified.
+After the Reference CCA has been sufficiently implemented and behaviorally validated, evaluate whether compact or specialized variants are justified.
 
 Variants should be derived from the validated Reference CCA rather than independently redefining the architecture.
 
