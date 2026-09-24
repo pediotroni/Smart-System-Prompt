@@ -2,7 +2,7 @@
 
 ## Current State
 
-The CCA project has entered concrete Reference CCA implementation after completion of the architecture and interface-level consistency review.
+The CCA project has entered controlled validation after completion of the architecture, interface-level consistency review, and construction of the first Reference CCA implementation baseline.
 
 The core CCA architecture includes:
 
@@ -25,7 +25,7 @@ The project-local CCA baseline has been instantiated, the Reference Implementati
 
 The Reference CCA architecture, implementation boundary, and seven core implementation responsibilities are established.
 
-The first concrete implementation baseline exists, but it has not yet been behaviorally validated with a real runtime/model.
+The first concrete implementation baseline exists, and a deterministic controlled validation runner has been prepared. Its execution and real-model behavior have not yet been verified in the current environment.
 
 Therefore:
 
@@ -33,11 +33,12 @@ Therefore:
 - implementation: initial baseline constructed
 - interface definition: completed for the current seven responsibilities
 - integration consistency review: completed
+- controlled validation baseline: prepared
 - behavioral validation: pending
 
 ## Current Objective
 
-Establish a controlled testable baseline for the Reference CCA, then perform behavioral validation before making further architectural changes.
+Execute the controlled baseline checks, record observed results, and only then prepare real-model behavioral validation.
 
 ## Validation Status
 
@@ -46,7 +47,7 @@ Establish a controlled testable baseline for the Reference CCA, then perform beh
 **Component Interfaces:** Defined  
 **Integration:** Consistency Review Complete  
 **Real Model Testing:** Not Started  
-**Reference CCA Baseline:** Structurally Implemented; Behavioral Validation Pending
+**Reference CCA Baseline:** Controlled Test Harness Prepared; Behavioral Validation Pending
 
 ## Important Constraint
 
@@ -56,8 +57,8 @@ They will only be considered after the Reference CCA has been sufficiently imple
 
 ## Last State Transition
 
-The project moved from interface-level consistency review into concrete Reference CCA construction. The first runtime-independent implementation baseline is now present.
+The project moved from concrete construction into controlled validation. The first runtime-independent implementation baseline and deterministic baseline runner are now present.
 
 ## Next Expected Transition
 
-Establish a controlled testable baseline and begin behavioral validation. Further architectural expansion remains evidence-gated.
+Execute the deterministic baseline runner, record its result, then proceed toward real-model behavioral validation. Further architectural expansion remains evidence-gated.
