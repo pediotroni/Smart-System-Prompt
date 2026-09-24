@@ -66,7 +66,7 @@ It provides:
 - a deterministic in-memory adapter for implementation-level testing
 - focused tests for selective retrieval, project resolution, memory deduplication, and validation
 
-The baseline intentionally does not implement Phase 3 runtime adapters.
+The deterministic baseline has now been executed successfully in GitHub Actions.
 
 ## Authority Boundaries
 
@@ -144,7 +144,7 @@ It must not silently convert uncertainty into fact.
 
 The Reference Implementation must be testable independently of any single model or runtime.
 
-Behavioral testing shall later determine whether the implementation correctly realizes the architecture.
+The deterministic implementation-level baseline is verified. Behavioral testing now remains as a separate validation stage.
 
 Observed model limitations must not automatically be treated as architectural defects.
 
@@ -165,9 +165,10 @@ These concerns shall be resolved only when sufficient evidence exists.
 **Architecture:** Established  
 **Implementation Boundary:** Defined  
 **Reference Implementation:** Initial Concrete Baseline Constructed  
+**Controlled Baseline:** PASS  
 **Runtime Adapter:** Phase 3; Not Started  
-**Behavioral Validation:** Not Started
+**Behavioral Validation:** Pending
 
 ## Next Step
 
-Establish a controlled testable baseline and validate the implementation before introducing further architectural elements.
+Use `42-behavioral-validation-plan.md` to select one verified model/runtime configuration and execute the minimum behavioral test suite before introducing further architectural elements.
