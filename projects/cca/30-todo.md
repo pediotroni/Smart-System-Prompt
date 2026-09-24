@@ -60,9 +60,13 @@ The review identified and corrected a dependency-graph overstatement and synchro
 
 ## T-005 — Establish a Controlled Testable Baseline
 
-**Status:** PENDING
+**Status:** COMPLETED
 
-Prepare a sufficiently complete Reference CCA configuration for controlled behavioral testing with a real local AI model.
+A deterministic controlled baseline has been prepared under `implementation/cca_reference/`.
+
+The baseline exercises all seven established responsibilities and distinguishes implementation-level baseline checks from later real-model behavioral validation.
+
+Execution of the runner is an external runtime action and has not been claimed as verified in this environment.
 
 ---
 
