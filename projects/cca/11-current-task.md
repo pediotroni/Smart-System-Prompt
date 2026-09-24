@@ -2,22 +2,21 @@
 
 ## Current Task
 
-Construct the CCA Reference Architecture into a coherent, internally consistent, and testable implementation.
+Establish a controlled, testable Reference CCA baseline and prepare it for behavioral validation.
 
 ## Immediate Objective
 
-Complete the interface-level consistency review of the defined Reference Implementation responsibilities, then proceed to concrete implementation in a controlled sequence.
+Exercise the concrete Reference CCA implementation against deterministic test scenarios, identify implementation defects or architectural gaps, and prepare the minimum configuration required for later real-model testing.
 
-The immediate goal is not optimization or minimization.
-
-The immediate goal is to establish a sufficiently complete Reference CCA that can be tested with a real local AI model.
+The immediate goal is validation of the Reference CCA, not optimization or minimization.
 
 ## Current Work Sequence
 
-1. Complete the interface-level consistency review.
-2. Correct only identified interface or responsibility inconsistencies.
-3. Construct the required implementation components according to their defined responsibilities.
-5. Establish a controlled testable baseline.
+1. Establish a controlled testable baseline.
+2. Run deterministic implementation-level tests.
+3. Analyze observed behavior.
+4. Correct only evidence-supported implementation defects or architectural deficiencies.
+5. Prepare real-runtime/model testing.
 6. Run real-model behavioral tests.
 7. Analyze observed behavior.
 8. Correct only evidence-supported architectural defects or deficiencies.
@@ -36,9 +35,7 @@ The following are outside the current task:
 
 ## Current Success Condition
 
-The current task is complete when a coherent Reference CCA implementation exists that is sufficiently complete for controlled real-model testing.
-
-At that point, construction work pauses and the project enters behavioral validation.
+The current task is complete when the Reference CCA has a controlled testable baseline and sufficient behavioral evidence exists to determine whether construction should pause for real-model validation or whether an evidence-supported correction is required.
 
 ## Working Principle
 
