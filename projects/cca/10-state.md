@@ -25,7 +25,9 @@ The project-local CCA baseline has been instantiated, the Reference Implementati
 
 The Reference CCA architecture, implementation boundary, and seven core implementation responsibilities are established.
 
-The first concrete implementation baseline exists, and a deterministic controlled validation runner has been prepared. Its execution and real-model behavior have not yet been verified in the current environment.
+The deterministic controlled baseline has now been executed successfully in GitHub Actions. The implementation-level baseline therefore has a verified PASS.
+
+Real-model behavioral validation has not yet been executed.
 
 Therefore:
 
@@ -33,12 +35,13 @@ Therefore:
 - implementation: initial baseline constructed
 - interface definition: completed for the current seven responsibilities
 - integration consistency review: completed
-- controlled validation baseline: prepared
+- controlled validation baseline: PASS
 - behavioral validation: pending
+- real-model testing: not started
 
 ## Current Objective
 
-Execute the controlled baseline checks, record observed results, and only then prepare real-model behavioral validation.
+Prepare and execute the minimum controlled real-model behavioral validation required to determine whether the Reference CCA behaves correctly in an actual model/runtime interaction.
 
 ## Validation Status
 
@@ -46,19 +49,36 @@ Execute the controlled baseline checks, record observed results, and only then p
 **Implementation:** Initial Baseline Constructed  
 **Component Interfaces:** Defined  
 **Integration:** Consistency Review Complete  
-**Real Model Testing:** Not Started  
-**Reference CCA Baseline:** Controlled Test Harness Prepared; Behavioral Validation Pending
+**Controlled Reference Baseline:** PASS  
+**Behavioral Validation:** Pending  
+**Real Model Testing:** Not Started
+
+## Verified Baseline Evidence
+
+The controlled baseline workflow completed successfully:
+
+- Workflow: `CCA Reference Baseline`
+- Run ID: `36058064392`
+- Commit: `33c79d76d0c3968d55fe8bf63c647062ccce9d5f`
+- Event: push to `main`
+- Conclusion: success
+
+The result verifies the deterministic implementation-level baseline only. It does not establish real-model behavioral correctness.
 
 ## Important Constraint
 
 Compact CCA and other specialized variants are intentionally deferred.
 
-They will only be considered after the Reference CCA has been sufficiently implemented and validated.
+They will only be considered after the Reference CCA has been sufficiently implemented and behaviorally validated.
 
 ## Last State Transition
 
-The project moved from concrete construction into controlled validation. The first runtime-independent implementation baseline and deterministic baseline runner are now present.
+The project moved from controlled-baseline preparation to verified controlled-baseline PASS.
+
+The next transition is preparation and execution of controlled real-model behavioral validation.
 
 ## Next Expected Transition
 
-Execute the deterministic baseline runner, record its result, then proceed toward real-model behavioral validation. Further architectural expansion remains evidence-gated.
+Select and verify one concrete model/runtime configuration, execute the minimum behavioral test suite defined in `42-behavioral-validation-plan.md`, record evidence, and correct only evidence-supported defects.
+
+Further architectural expansion remains evidence-gated.
