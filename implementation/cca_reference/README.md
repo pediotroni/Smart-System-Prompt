@@ -21,11 +21,25 @@ engine, operating system, hardware platform, or filesystem implementation.
 The InMemoryRuntimeAdapter exists only as a deterministic test adapter. It does
 not establish the Phase 3 runtime adapters.
 
-## Running the tests
+## Controlled baseline
+
+`test_baseline.py` exercises one coherent path through all seven responsibilities
+and checks capability truthfulness, project resolution, active-context activation,
+selective retrieval, memory persistence and duplicate detection, checkpoint
+creation, and validation of valid and invalid active-project state.
+
+The runner uses only the Python standard library.
 
 From this directory:
 
-    python -m pytest
+    python test_baseline.py
+
+Expected result:
+
+    CCA Reference Baseline: PASS
+
+A PASS from this deterministic runner establishes only implementation-level
+baseline behavior. It is not real-model behavioral validation.
 
 The implementation is intentionally small. It is a reference baseline, not a
 production framework or optimization target.
