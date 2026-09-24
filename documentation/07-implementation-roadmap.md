@@ -12,13 +12,16 @@
 
 ## Phase 2 — Reference implementation
 
-- [ ] Workspace initialization
-- [ ] Project registry
-- [ ] Active-context projection
-- [ ] Retrieval engine
-- [ ] Memory classification/write engine
-- [ ] Checkpoint engine
-- [ ] Validation and consistency checks
+- [x] Workspace initialization
+- [x] Project registry
+- [x] Active-context projection
+- [x] Retrieval engine
+- [x] Memory classification/write engine
+- [x] Checkpoint engine
+- [x] Validation and consistency checks
+
+The initial concrete baseline is implemented under `implementation/cca_reference/`.
+Behavioral validation remains a separate Phase 4 activity.
 
 ## Phase 3 — Runtime adapters
 
