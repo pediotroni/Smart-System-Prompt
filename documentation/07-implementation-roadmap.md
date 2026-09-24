@@ -21,7 +21,8 @@
 - [x] Validation and consistency checks
 
 The initial concrete baseline is implemented under `implementation/cca_reference/`.
-Behavioral validation remains a separate Phase 4 activity.
+
+The deterministic controlled baseline has been executed successfully in GitHub Actions.
 
 ## Phase 3 — Runtime adapters
 
@@ -29,6 +30,8 @@ Behavioral validation remains a separate Phase 4 activity.
 - [ ] Shell
 - [ ] Web/tools
 - [ ] llama.cpp adapter (optional)
+
+Phase 3 remains a runtime-integration track. It is not a prerequisite for the model-independent implementation baseline, but a concrete adapter is required for real-model behavioral testing.
 
 ## Phase 4 — Validation
 
@@ -38,3 +41,12 @@ Behavioral validation remains a separate Phase 4 activity.
 - [ ] Memory deduplication
 - [ ] Conflict detection
 - [ ] Capability truthfulness
+
+The minimum behavioral suite is defined in `projects/cca/42-behavioral-validation-plan.md`.
+
+## Current Gate
+
+**Controlled Reference Baseline:** PASS  
+**Real-Model Behavioral Validation:** Pending
+
+Do not expand the architecture until behavioral evidence demonstrates a concrete requirement or deficiency.
