@@ -10,7 +10,7 @@ TODO items must not be treated as established decisions, findings, or requiremen
 
 ## T-001 — Complete Reference CCA Project Baseline
 
-**Status:** IN PROGRESS
+**Status:** COMPLETED
 
 Complete the required project-local files and verify that their responsibilities are consistent with the global file contracts.
 
