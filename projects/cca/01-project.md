@@ -8,7 +8,7 @@
 
 ## Purpose
 
-CCA (Context and Continuity Architecture) is an architecture for organizing persistent context, project state, user continuity, runtime information, and controlled context retrieval for AI systems.
+CCA (Cognitive Continuity Agent) is an architecture for organizing persistent context, project state, user continuity, runtime information, and controlled context retrieval for AI systems.
 
 CCA is an architecture, not a model.
 
