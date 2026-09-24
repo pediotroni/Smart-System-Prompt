@@ -2,25 +2,37 @@
 
 ## Current Task
 
-Execute the controlled Reference CCA baseline checks and prepare the implementation for behavioral validation.
+Prepare and execute controlled real-model behavioral validation of the Reference CCA.
 
 ## Immediate Objective
 
-Run the deterministic baseline runner against the concrete Reference CCA implementation, record observed behavior, correct only evidence-supported defects, and prepare the minimum configuration required for later real-model testing.
+Use the verified deterministic implementation baseline as the control point, select one concrete model/runtime configuration, execute the minimum behavioral test suite, record observed behavior, and distinguish implementation, runtime, model, test-design, and architectural causes before changing the system.
 
-The immediate goal is validation of the Reference CCA, not optimization or minimization.
+The immediate goal is behavioral evidence, not optimization or minimization.
 
 ## Current Work Sequence
 
-1. Execute the controlled baseline checks.
-2. Record deterministic implementation-level results.
-3. Analyze observed behavior.
-4. Correct only evidence-supported implementation defects or architectural deficiencies.
-5. Prepare real-runtime/model testing.
-6. Run real-model behavioral tests.
-7. Analyze observed behavior.
-8. Correct only evidence-supported architectural defects or deficiencies.
-9. Repeat testing where required.
+1. Select and verify one concrete model/runtime configuration.
+2. Establish the minimum behavioral test harness/configuration.
+3. Execute B-01 through B-07 from `42-behavioral-validation-plan.md`.
+4. Record expected and observed behavior with evidence.
+5. Diagnose each non-PASS result without prematurely attributing it to the architecture.
+6. Correct only evidence-supported implementation or integration defects.
+7. Re-run discriminating tests where required.
+8. Determine whether an architectural deficiency has actually been demonstrated.
+9. If architecture remains adequate, proceed without expansion.
+10. After sufficient behavioral evidence, evaluate the deferred questions through concrete cases.
+
+## Verified Precondition
+
+The deterministic Reference CCA baseline has passed in GitHub Actions.
+
+- Workflow: `CCA Reference Baseline`
+- Run ID: `36058064392`
+- Commit: `33c79d76d0c3968d55fe8bf63c647062ccce9d5f`
+- Conclusion: success
+
+This verifies implementation-level behavior only.
 
 ## Explicitly Deferred
 
@@ -35,7 +47,11 @@ The following are outside the current task:
 
 ## Current Success Condition
 
-The current task is complete when the Reference CCA has a controlled testable baseline and sufficient behavioral evidence exists to determine whether construction should pause for real-model validation or whether an evidence-supported correction is required.
+The current task is complete when the minimum behavioral suite has produced sufficient evidence to determine whether the Reference CCA:
+
+1. behaves correctly in the selected model/runtime environment, or
+2. requires a specific evidence-supported correction, or
+3. encounters a demonstrated model/runtime limitation that must not be misclassified as an architectural defect.
 
 ## Working Principle
 
@@ -48,3 +64,5 @@ New components, rules, or mechanisms should be introduced only when their necess
 - a counterexample
 - an observed failure
 - or another sufficiently grounded architectural reason
+
+Repeated testing that cannot change the diagnosis should be stopped.
