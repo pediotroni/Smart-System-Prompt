@@ -365,7 +365,9 @@ The component shall be capable of detecting, where applicable:
 
 # Inter-Component Relationships
 
-The initial dependency structure is:
+The seven responsibilities form a set of cooperating components, but not every interaction is a dependency.
+
+The primary dependency path is:
 
 ```
 Workspace Initialization
@@ -378,19 +380,28 @@ Active Context Management
           │
           ▼
 Context Retrieval
+```
+
+The following components consume relevant state or events produced during operation:
+
+```
+Context / Project State
           │
           ├──────────────► Memory Classification / Persistence
           │
           └──────────────► Context Checkpointing
 
-Validation and Consistency Checking
+All authoritative state
           │
-          └──► validates the state and relationships of the other components
+          ▼
+Validation and Consistency Checking
 ```
 
-This diagram represents responsibility flow, not necessarily a fixed execution sequence.
+Memory persistence and checkpointing are not dependencies of Context Retrieval. They may be invoked after relevant information has been produced or when continuity requires them.
 
-Components may be invoked independently when required.
+Validation is a read-oriented observer of established state and implementation relationships. It is not a prerequisite for ordinary component execution unless a specific validation gate requires it.
+
+Components may therefore be invoked independently when required, provided their declared inputs and authority boundaries are satisfied.
 
 ---
 
