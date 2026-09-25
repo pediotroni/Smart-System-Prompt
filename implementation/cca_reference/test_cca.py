@@ -2,6 +2,7 @@
 from cca import (
     ActiveContext,
     CCAReference,
+    ForgetRequest,
     InMemoryRuntimeAdapter,
     MemoryClass,
     MemoryManager,
@@ -61,3 +62,18 @@ def test_validation_rejects_unregistered_active_project():
         authoritative_paths={"project_index": "20-project-index.md"},
     )
     assert result.status is ResultStatus.INVALID
+
+
+def test_forgetting_is_scoped_and_does_not_claim_delete():
+    manager = MemoryManager()
+    entry_result = manager.classify(MemoryClass.FINDING, "forget me", scope="project-a")
+    assert entry_result.status is ResultStatus.SUCCESS
+    entry = entry_result.value
+    assert manager.persist(entry).status is ResultStatus.SUCCESS
+
+    forgotten = manager.forget(ForgetRequest(target=entry, scope="project-a"))
+    assert forgotten.status is ResultStatus.SUCCESS
+    assert manager.active_entries(scope="project-a").value == ()
+
+    mismatch = manager.forget(ForgetRequest(target=entry, scope="project-b"))
+    assert mismatch.status is ResultStatus.INVALID
