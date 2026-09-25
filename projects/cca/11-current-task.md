@@ -2,67 +2,28 @@
 
 ## Current Task
 
-Prepare and execute controlled real-model behavioral validation of the Reference CCA.
+Consolidate the Reference CCA architecture and prepare the next controlled behavioral validation cycle.
 
-## Immediate Objective
+## Immediate objective
 
-Use the verified deterministic implementation baseline as the control point, select one concrete model/runtime configuration, execute the minimum behavioral test suite, record observed behavior, and distinguish implementation, runtime, model, test-design, and architectural causes before changing the system.
+1. complete documentation minimization and consistency review
+2. preserve the established authority boundaries
+3. implement forgetting only after its semantics are validated against the Reference Implementation boundary
+4. resume the minimum behavioral suite, including a controlled forgetting test
 
-The immediate goal is behavioral evidence, not optimization or minimization.
+## Current work sequence
 
-## Current Work Sequence
+1. Review consolidated core documents for duplication and contradiction.
+2. Verify the forgetting contract: target, scope, operation, capability, result.
+3. Keep physical deletion separate from logical forgetting/suppression.
+4. Update the Reference Implementation only where the contract requires it.
+5. Run deterministic implementation tests.
+6. Resume B-01 through B-07.
+7. Add a forgetting test only to distinguish a concrete requirement or implementation boundary.
+8. Attribute failures before changing architecture.
 
-1. Select and verify one concrete model/runtime configuration.
-2. Establish the minimum behavioral test harness/configuration.
-3. Execute B-01 through B-07 from `42-behavioral-validation-plan.md`.
-4. Record expected and observed behavior with evidence.
-5. Diagnose each non-PASS result without prematurely attributing it to the architecture.
-6. Correct only evidence-supported implementation or integration defects.
-7. Re-run discriminating tests where required.
-8. Determine whether an architectural deficiency has actually been demonstrated.
-9. If architecture remains adequate, proceed without expansion.
-10. After sufficient behavioral evidence, evaluate the deferred questions through concrete cases.
+## Success condition
 
-## Verified Precondition
+The consolidation is complete when authoritative information has one clear home, operational protocols are concise, and forgetting semantics are explicit without inventing unverified deletion capability.
 
-The deterministic Reference CCA baseline has passed in GitHub Actions.
-
-- Workflow: `CCA Reference Baseline`
-- Run ID: `36058064392`
-- Commit: `33c79d76d0c3968d55fe8bf63c647062ccce9d5f`
-- Conclusion: success
-
-This verifies implementation-level behavior only.
-
-## Explicitly Deferred
-
-The following are outside the current task:
-
-- Compact CCA construction
-- Model-specific CCA variants
-- Hardware-specific variants
-- Premature optimization
-- Architectural minimization without evidence
-- Expansion of the architecture without demonstrated necessity
-
-## Current Success Condition
-
-The current task is complete when the minimum behavioral suite has produced sufficient evidence to determine whether the Reference CCA:
-
-1. behaves correctly in the selected model/runtime environment, or
-2. requires a specific evidence-supported correction, or
-3. encounters a demonstrated model/runtime limitation that must not be misclassified as an architectural defect.
-
-## Working Principle
-
-Do not treat an architectural element as necessary merely because it appears useful.
-
-New components, rules, or mechanisms should be introduced only when their necessity is supported by:
-
-- an identified requirement
-- a concrete use case
-- a counterexample
-- an observed failure
-- or another sufficiently grounded architectural reason
-
-Repeated testing that cannot change the diagnosis should be stopped.
+Behavioral validation remains evidence-driven.
