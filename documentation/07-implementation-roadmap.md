@@ -5,7 +5,7 @@
 - [x] Core identity
 - [x] File contracts
 - [x] Reading protocol
-- [x] Memory write protocol
+- [x] Memory write and forgetting protocol
 - [x] Bootstrap protocol
 - [x] Project switching protocol
 - [x] Context checkpoint protocol
@@ -19,10 +19,11 @@
 - [x] Memory classification/write engine
 - [x] Checkpoint engine
 - [x] Validation and consistency checks
+- [ ] Forgetting semantics implementation
 
-The initial concrete baseline is implemented under `implementation/cca_reference/`.
+The initial concrete baseline is under `implementation/cca_reference/`.
 
-The deterministic controlled baseline has been executed successfully in GitHub Actions.
+The deterministic controlled baseline has passed in GitHub Actions.
 
 ## Phase 3 — Runtime adapters
 
@@ -31,22 +32,24 @@ The deterministic controlled baseline has been executed successfully in GitHub A
 - [ ] Web/tools
 - [ ] llama.cpp adapter (optional)
 
-Phase 3 remains a runtime-integration track. It is not a prerequisite for the model-independent implementation baseline, but a concrete adapter is required for real-model behavioral testing.
+A concrete adapter is required for real-model behavioral testing.
 
 ## Phase 4 — Validation
 
-- [ ] Single-project continuity
+- [ ] Returning-run continuity
+- [ ] Selective retrieval
 - [ ] Multi-project isolation
-- [ ] Context-shift recovery
-- [ ] Memory deduplication
-- [ ] Conflict detection
+- [ ] Memory classification/deduplication
+- [ ] Context checkpoint/recovery
 - [ ] Capability truthfulness
+- [ ] Missing / unknown / conflict handling
+- [ ] Forgetting / suppression / deletion semantics
 
-The minimum behavioral suite is defined in `projects/cca/42-behavioral-validation-plan.md`.
+The minimum suite is defined in `projects/cca/42-behavioral-validation-plan.md`.
 
 ## Current Gate
 
 **Controlled Reference Baseline:** PASS  
-**Real-Model Behavioral Validation:** Pending
+**Real-Model Behavioral Validation:** IN PROGRESS
 
-Do not expand the architecture until behavioral evidence demonstrates a concrete requirement or deficiency.
+Architecture changes remain evidence-gated; the explicit forgetting requirement is now part of the Reference Architecture, while implementation and stronger deletion guarantees require validation.
