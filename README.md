@@ -8,4 +8,8 @@ The repository separates persistent state, active context, project state, runtim
 
 CCA also defines explicit, scoped forgetting semantics. Logical forgetting/suppression is distinct from physical deletion; deletion is never claimed without verified capability and evidence.
 
+The canonical architecture is defined by `00-system.md` and the documented protocols in `documentation/`.
+
+For local deployment, `documentation/08-runtime-system-prompt.md` provides a compact executable system-prompt projection derived from the architecture. It is intended to be copied into a model WebUI's **System Prompt** field; it is not a second architectural authority.
+
 See `documentation/` for the normative architecture and operational protocols.
