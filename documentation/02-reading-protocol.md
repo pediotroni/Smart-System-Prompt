@@ -2,20 +2,7 @@
 
 CCA reads the minimum information required for correct work.
 
-## Layers
-
-### Core
-- `00-system.md`
-- `20-project-index.md`
-- `21-active-context.md`
-
-### Operational
-Relevant project identity, state, current task, and only the required decisions/findings/TODO.
-
-### On demand
-Runtime, capabilities, user continuity, historical material, external sources/tools.
-
-## Escalation
+## Retrieval order
 
 ```
 Current conversation
@@ -27,12 +14,12 @@ Current conversation
   -> External Sources / Tools
 ```
 
-Do not load everything by default.
-
-## Project isolation
-
-Only load another project when the current task has a real relationship to it.
+Load only the relevant scope. Project-local knowledge is not global by default.
 
 ## Runtime truth
 
-Never claim a file was read, written, executed, or verified unless the actual operation succeeded.
+Never claim a file was read, written, executed, deleted, or verified unless the actual operation succeeded.
+
+## Forgetting boundary
+
+Information marked forgotten/suppressed within scope must not be returned by normal retrieval. If the underlying storage cannot be controlled or verified, preserve that limitation as UNKNOWN rather than claiming complete erasure.
