@@ -12,17 +12,13 @@ Ideas, proposals, hypotheses, unresolved questions, and temporary observations m
 
 The CCA Reference Architecture shall be constructed and sufficiently validated before designing Compact CCA or other specialized CCA variants.
 
-Compact and specialized variants shall be treated as derived variants of the validated Reference Architecture rather than as competing primary architectures.
-
 ---
 
 ## DEC-002 — Architecture Before Optimization
 
 **Status:** ACTIVE
 
-CCA shall first be constructed as a coherent and sufficiently complete Reference Architecture.
-
-Optimization, minimization, model-specific adaptation, and compact variants shall not constrain the primary architecture before the architecture has been validated.
+CCA shall first be constructed as a coherent and sufficiently complete Reference Architecture. Optimization and compact variants must not distort the primary architecture before validation.
 
 ---
 
@@ -30,18 +26,7 @@ Optimization, minimization, model-specific adaptation, and compact variants shal
 
 **Status:** ACTIVE
 
-CCA architecture shall remain independent of any specific:
-
-- AI model
-- model family
-- model size
-- hardware platform
-- operating system
-- inference runtime
-- programming language
-- implementation technology
-
-Runtime-specific information belongs to the runtime layer and must not redefine the CCA architecture.
+CCA architecture shall remain independent of any specific AI model, hardware, operating system, inference runtime, programming language, or implementation technology.
 
 ---
 
@@ -49,9 +34,7 @@ Runtime-specific information belongs to the runtime layer and must not redefine 
 
 **Status:** ACTIVE
 
-CCA architecture shall not be expanded, reduced, or structurally modified solely because a component appears useful.
-
-Architectural changes require sufficient grounding through an identified requirement, concrete use case, counterexample, observed failure, or other relevant evidence.
+Architectural changes require an identified requirement, concrete use case, counterexample, observed failure, or other sufficiently grounded reason.
 
 ---
 
@@ -59,11 +42,7 @@ Architectural changes require sufficient grounding through an identified require
 
 **Status:** ACTIVE
 
-CCA shall retrieve and use the minimum context required for correct execution of the current task.
-
-Information shall not be loaded merely because it exists.
-
-This principle does not imply that the architecture itself must be minimal.
+CCA shall retrieve and use the minimum context required for correct execution. Information shall not be loaded merely because it exists.
 
 ---
 
@@ -71,9 +50,7 @@ This principle does not imply that the architecture itself must be minimal.
 
 **Status:** ACTIVE
 
-CCA architectural definitions shall remain distinct from runtime-specific facts and implementation mechanisms.
-
-Runtime state, available capabilities, and launch conditions shall be represented separately from the architectural definition.
+Architectural definitions remain distinct from runtime-specific facts and implementation mechanisms.
 
 ---
 
@@ -81,9 +58,7 @@ Runtime state, available capabilities, and launch conditions shall be represente
 
 **Status:** ACTIVE
 
-CCA shall be validated through controlled behavioral testing with a real AI model before the Reference Architecture is considered sufficiently established.
-
-Architectural correctness shall not be inferred solely from textual consistency.
+CCA shall be validated through controlled behavioral testing with a real AI model before the Reference CCA is considered sufficiently established.
 
 ---
 
@@ -91,14 +66,28 @@ Architectural correctness shall not be inferred solely from textual consistency.
 
 **Status:** ACTIVE
 
-New files, protocols, mechanisms, or architectural layers shall not be introduced solely to anticipate hypothetical future requirements.
+New mechanisms shall not be introduced merely to anticipate hypothetical future requirements.
 
-Expansion shall be driven by demonstrated necessity or sufficiently grounded architectural evidence.
+This decision is subject to DEC-009: an explicit, concrete user requirement is sufficient architectural evidence to define a required capability, while implementation complexity remains evidence-gated.
+
+---
+
+## DEC-009 — Forgetting Is a First-Class Capability
+
+**Status:** ACTIVE
+
+CCA shall support explicit, scoped information-forgetting semantics.
+
+The architecture must distinguish logical forgetting/suppression from physical deletion and must never claim successful deletion without verified capability and evidence.
+
+Forgetting shall operate on existing authoritative records and retrieval paths rather than creating a parallel memory system.
+
+Implementation details and stronger deletion guarantees remain subject to behavioral and runtime validation.
+
+**Reason:** Explicit requirement to support forgetting and removal while preserving CCA's truthfulness and selective-persistence principles.
 
 ---
 
 ## Decision Maintenance
 
-When a decision is changed, the existing decision shall not be silently rewritten as though the previous decision never existed.
-
-A superseding decision shall explicitly identify the decision it replaces and explain the reason for the change.
+When a decision changes, the existing decision shall not be silently rewritten. A superseding decision must identify what it replaces and why.
