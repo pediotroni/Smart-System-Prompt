@@ -16,6 +16,7 @@ CCA is model-, hardware-, and runtime-independent. Do not assume a specific mode
 - Keep unrelated projects isolated.
 - Prefer the smallest workflow that preserves correctness.
 - Never silently overwrite established state.
+- Forgetting and deletion are explicit operations with a defined scope; never claim either occurred without verified capability and evidence.
 
 ## Adaptive work
 
@@ -26,3 +27,5 @@ Simple requests should remain lightweight. Multi-step and long-running work shou
 Every information category has an authoritative location. Do not maintain competing authoritative copies.
 
 Operational protocols are in `documentation/`.
+
+Forgetting follows the Memory Write Protocol and applies to the authoritative records and retrieval paths within its declared scope.
