@@ -8,6 +8,7 @@ from cca import (
     ActiveContext,
     CCAReference,
     InMemoryRuntimeAdapter,
+    ForgetRequest,
     MemoryClass,
     Project,
     ResultStatus,
@@ -69,6 +70,15 @@ def run() -> None:
           "memory persistence failed")
     check(cca.memory.persist(classified.value).status is ResultStatus.CONFLICT,
           "duplicate memory was not detected")
+
+    forgotten = cca.memory.forget(
+        ForgetRequest(target=classified.value, scope="cca")
+    )
+    check(forgotten.status is ResultStatus.SUCCESS, "logical forgetting failed")
+    active_memories = cca.memory.active_entries(scope="cca")
+    check(active_memories.status is ResultStatus.SUCCESS, "active memory retrieval failed")
+    check(classified.value not in active_memories.value,
+          "forgotten memory remained normally retrievable")
 
     checkpoint = cca.checkpoint.create(
         project_id="cca",
