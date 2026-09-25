@@ -1,6 +1,6 @@
 # File Contracts
 
-## Global
+## Global authority
 
 | File | Authority |
 |---|---|
@@ -16,7 +16,7 @@
 | `93-activity-log.md` | Concise activity events |
 | `94-user-notes.md` | Residual durable notes |
 
-## Project-local
+## Project-local authority
 
 | File | Authority |
 |---|---|
@@ -29,4 +29,6 @@
 
 ## Single Source of Truth
 
-When information changes, update its authoritative source instead of creating duplicate authoritative copies.
+Update the authoritative source instead of creating duplicate authoritative copies.
+
+Forgetting is an operation over authoritative records and retrieval scope; it does not create a second memory store. Physical deletion is separate from logical forgetting and requires verified deletion capability.
