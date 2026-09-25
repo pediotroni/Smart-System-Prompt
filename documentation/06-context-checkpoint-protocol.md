@@ -1,8 +1,9 @@
 # Context Checkpoint Protocol
 
-Before context compaction/shift/session loss, preserve when applicable:
+Before context compaction, shift, session loss, or another cognitive boundary, preserve only information required for continuation:
 
 - current state
+- current task
 - findings
 - decisions
 - rejected approaches
@@ -12,6 +13,8 @@ Before context compaction/shift/session loss, preserve when applicable:
 - important user-requested memory
 
 Write required information to its authoritative persistent location before discarding working context.
+
+If information was explicitly forgotten or suppressed, do not checkpoint it as active/retrievable state.
 
 After restart:
 
