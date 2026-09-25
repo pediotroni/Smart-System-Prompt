@@ -2,45 +2,19 @@
 
 ## Purpose
 
-This document defines the boundary and structural responsibilities of the CCA Reference Implementation.
+The Reference Implementation realizes the CCA architecture as executable behavior while remaining independent of any specific model, hardware, runtime, or implementation technology.
 
-The Reference Implementation realizes the established CCA architecture as executable behavior while preserving the architecture's model, hardware, runtime, and implementation independence.
-
-It is not a replacement for the CCA architecture.
-
-## Implementation Boundary
-
-The Reference Implementation operates between the CCA architectural definitions and a concrete runtime environment.
-
-```text
+```
 CCA Architecture
       |
-      v
 Reference Implementation
       |
-      v
 Runtime Adapter
       |
-      v
 Actual Runtime / AI Model
 ```
 
-The Reference Implementation must not require a specific:
-
-* AI model
-* model family
-* model size
-* inference engine
-* hardware platform
-* operating system
-* programming language
-* runtime environment
-
-Runtime-specific behavior belongs to the Runtime Adapter layer.
-
-## Core Responsibilities
-
-The Reference Implementation realizes:
+## Core responsibilities
 
 1. Workspace Initialization
 2. Project Registry Management
@@ -50,125 +24,53 @@ The Reference Implementation realizes:
 6. Context Checkpointing
 7. Validation and Consistency Checking
 
-These responsibilities correspond to the components established during the Reference CCA component definition phase.
+Forgetting is a cross-cutting lifecycle requirement of memory handling, not a separate eighth architecture component unless implementation evidence later requires one.
 
-## Concrete Baseline
+## Required behavior
 
-The first concrete baseline is located under `implementation/cca_reference/`.
+The implementation must preserve:
 
-It provides:
+- authoritative file boundaries
+- project isolation
+- Minimum Sufficient Context
+- selective persistence
+- explicit uncertainty/error states
+- runtime capability truthfulness
 
-- a runtime-independent composition root
-- concrete implementations of the seven established responsibilities
-- explicit operation-result statuses
-- typed project, active-context, memory, and checkpoint state
-- an abstract Runtime Adapter boundary
-- a deterministic in-memory adapter for implementation-level testing
-- focused tests for selective retrieval, project resolution, memory deduplication, and validation
+### Forgetting boundary
 
-The deterministic baseline has now been executed successfully in GitHub Actions.
+The implementation must support the architectural distinction between:
 
-## Authority Boundaries
+- FORGET — logical removal from normal use/retrieval within scope
+- SUPPRESS — retrieval exclusion without claiming physical deletion
+- DELETE — physical removal only when the runtime exposes and verifies the required capability
+- ROLLBACK — restore a prior valid state
+- RESTORE — explicitly recover retained state
 
-The Reference Implementation must preserve the authority defined by the CCA file contracts.
+Every operation must report an explicit result. An unavailable deletion mechanism must never be reported as successful deletion.
 
-Authoritative information must remain in its designated location.
+Forgetting must operate on authoritative records and retrieval paths rather than creating a second memory store.
 
-Implementation components must not create competing authoritative copies of:
+Copies outside the controlled runtime remain UNKNOWN unless actually controlled and verified.
 
-* system rules
-* runtime state
-* capabilities
-* project registry
-* active context
-* project state
-* decisions
-* findings
-* TODO items
-* user continuity
+## Existing baseline
 
-## Runtime Separation
+The first concrete implementation is under `implementation/cca_reference/`.
 
-The Reference Implementation must not assume that a capability exists merely because the architecture refers to it.
+It provides the seven established responsibilities, explicit operation-result statuses, typed state, an abstract Runtime Adapter, a deterministic in-memory adapter, and focused implementation tests.
 
-Actual capabilities must be established by the Runtime Adapter or another verified runtime mechanism.
+The deterministic baseline has passed in GitHub Actions.
 
-Examples include:
-
-* filesystem access
-* file modification
-* command execution
-* web access
-* external tools
-* model invocation
-
-A declared path or configuration value does not itself establish capability.
-
-## Project Isolation
-
-Project-local state must remain isolated according to the project registry and project-switching protocol.
-
-Switching the active project must not silently modify or merge unrelated project state.
-
-## Selective Retrieval
-
-The Reference Implementation must apply the Minimum Sufficient Context principle.
-
-Available information must not be loaded merely because it exists.
-
-Retrieval should proceed according to task relevance and the established Reading Protocol.
-
-## Selective Persistence
-
-The Reference Implementation must apply the Memory Write Protocol.
-
-Conversation content must not be persisted as a transcript dump.
-
-Persistent information must be classified and written only when its continuity value and authority are sufficiently established.
-
-## Error and Uncertainty Handling
-
-The Reference Implementation must distinguish between:
-
-* unavailable capability
-* unknown runtime state
-* missing information
-* conflicting information
-* invalid state
-* implementation failure
-* model capability limitation
-
-It must not silently convert uncertainty into fact.
-
-## Validation Boundary
-
-The Reference Implementation must be testable independently of any single model or runtime.
-
-The deterministic implementation-level baseline is verified. Behavioral testing now remains as a separate validation stage.
-
-Observed model limitations must not automatically be treated as architectural defects.
-
-## Deferred Concerns
-
-The following remain open and are not yet defined as independent implementation components:
-
-* rule and instruction precedence
-* loop and termination control
-* archived-project retrieval semantics
-* global versus project-local activity history
-* long-term role of `94-user-notes.md`
-
-These concerns shall be resolved only when sufficient evidence exists.
-
-## Current Status
+## Current status
 
 **Architecture:** Established  
 **Implementation Boundary:** Defined  
 **Reference Implementation:** Initial Concrete Baseline Constructed  
 **Controlled Baseline:** PASS  
-**Runtime Adapter:** Phase 3; Not Started  
-**Behavioral Validation:** Pending
+**Forgetting Semantics:** Defined; implementation pending  
+**Runtime Adapter:** Phase 3  
+**Behavioral Validation:** In progress
 
-## Next Step
+## Next step
 
-Use `42-behavioral-validation-plan.md` to select one verified model/runtime configuration and execute the minimum behavioral test suite before introducing further architectural elements.
+Complete the consolidation review, then implement and test only the forgetting behavior required by the architectural contract.
