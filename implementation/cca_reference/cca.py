@@ -58,6 +58,13 @@ class MemoryEntry:
     scope: str = "global"
 
 
+@dataclass(frozen=True)
+class ForgetRequest:
+    target: MemoryEntry
+    scope: str
+    operation: str = "FORGET"
+
+
 @dataclass
 class Checkpoint:
     project_id: str | None
@@ -212,10 +219,11 @@ class ContextRetrieval:
 
 
 class MemoryManager:
-    """Responsibility 5: classify and persist durable information."""
+    """Responsibility 5: classify, persist, and logically forget durable information."""
 
     def __init__(self) -> None:
         self.entries: list[MemoryEntry] = []
+        self._forgotten: set[MemoryEntry] = set()
 
     def classify(
         self, category: MemoryClass, content: str, scope: str = "global"
@@ -234,6 +242,41 @@ class MemoryManager:
             )
         self.entries.append(entry)
         return OperationResult(ResultStatus.SUCCESS, entry)
+
+    def forget(self, request: ForgetRequest) -> OperationResult:
+        """Logically forget an entry within its declared scope.
+
+        This does not claim physical deletion. The entry remains in the
+        controlled in-memory store so deletion and external-copy semantics
+        remain capability-gated and testable separately.
+        """
+        if request.operation != "FORGET":
+            return OperationResult(
+                ResultStatus.INVALID,
+                message="Only logical FORGET is implemented by the reference baseline.",
+            )
+        if request.target.scope != request.scope:
+            return OperationResult(
+                ResultStatus.INVALID,
+                message="Forget scope does not match the target scope.",
+            )
+        if request.target not in self.entries:
+            return OperationResult(
+                ResultStatus.MISSING,
+                message="Target memory entry is not persisted.",
+            )
+        self._forgotten.add(request.target)
+        return OperationResult(ResultStatus.SUCCESS, request.target)
+
+    def active_entries(self, scope: str | None = None) -> OperationResult:
+        """Return entries not logically forgotten within the requested scope."""
+        entries = [
+            entry
+            for entry in self.entries
+            if entry not in self._forgotten
+            and (scope is None or entry.scope == scope)
+        ]
+        return OperationResult(ResultStatus.SUCCESS, tuple(entries))
 
 
 class CheckpointManager:
