@@ -31,4 +31,12 @@
 
 Update the authoritative source instead of creating duplicate authoritative copies.
 
+Before persistence, resolve both **scope** and **authoritative destination**. No persistence target may be invented outside this authority map without an explicitly defined extension to the file contracts.
+
+A classification is not a write authorization.
+
+If the authoritative destination or required capability is UNKNOWN, the model must not substitute an arbitrary JSON file, database, path, or other storage mechanism.
+
+After an authorized write, verify the resulting authoritative state. An unexecuted or unverified tool call is not a persistence event.
+
 Forgetting is an operation over authoritative records and retrieval scope; it does not create a second memory store. Physical deletion is separate from logical forgetting and requires verified deletion capability.
