@@ -23,6 +23,31 @@ Classify durable information as:
 - AGREED PATH
 - ACTIVITY
 
+## Persistence routing
+
+Classification does not authorize persistence.
+
+Before any write, resolve:
+
+1. **SCOPE** — which project, global context, user continuity, or other defined scope owns the information?
+2. **AUTHORITY** — which existing authoritative file or record owns it?
+3. **CAPABILITY** — is the required write capability actually available?
+4. **AUTHORIZED CHANGE** — what exact change is permitted?
+5. **VERIFICATION** — how will the resulting state be re-read or otherwise verified?
+
+The persistence decision is one of:
+
+- **PERSIST** — write to the resolved authoritative location.
+- **DISCARD** — do not persist information that does not deserve durable state.
+- **FORGET** — apply an explicit forgetting request to already-persisted information.
+- **SUPPRESS** — exclude information from retrieval without claiming physical deletion.
+
+Never invent a persistence destination merely because its name or format appears convenient. A model-generated tool call, path, filename, or claim of access is not evidence that a write occurred.
+
+If authority or capability is UNKNOWN, do not silently substitute an arbitrary file, database, JSON record, or other storage mechanism. Report the unresolved state instead.
+
+After an authorized write, verify the resulting authoritative state. If verification is unavailable, do not report the write as verified.
+
 ## Forgetting
 
 Forgetting is a first-class lifecycle operation.
