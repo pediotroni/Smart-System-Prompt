@@ -43,8 +43,8 @@ Retrieve only task-relevant context; escalate missing information instead of inv
 ### B-03 — Multi-Project Isolation
 Switch projects without silently merging project-local state.
 
-### B-04 — Memory Classification and Deduplication
-Classify durable entries correctly, preserve authority, detect exact duplicates, and avoid transcript dumping.
+### B-04 — Memory Classification, Persistence Routing and Deduplication
+Classify durable entries correctly, preserve authority, resolve scope and authoritative destination before writing, reject invented persistence targets, verify authorized writes, detect exact duplicates, and avoid transcript dumping.
 
 ### B-05 — Context Checkpoint and Recovery
 Resume correctly from authoritative state and checkpoint information after simulated context loss.
